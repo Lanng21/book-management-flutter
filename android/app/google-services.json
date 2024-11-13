@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "905299901665",
+    "project_id": "doandidong-82796",
+    "storage_bucket": "doandidong-82796.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:905299901665:android:c75827f24542f66d588ba0",
+        "android_client_info": {
+          "package_name": "com.example.book"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGmm9mBdnICPSlDcb5jwU_zZep9xwKZss"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
