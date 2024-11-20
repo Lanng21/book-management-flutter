@@ -36,14 +36,17 @@
   ![alt text](image/image6.png)
 
 - tiếp theo là phải thêm code vào main để chạy
+
+  ```
   Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
 
-      options: DefaultFirebaseOptions.currentPlatform,
+        options: DefaultFirebaseOptions.currentPlatform,
 
   );
   runApp(const MyApp());
   }
+  ```
 
 - khi cài firebase xong, hãy dùng flutter run chạy trong terminal
