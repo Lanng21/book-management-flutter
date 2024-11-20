@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -320,8 +322,13 @@ class _TheListState extends State<TheList> {
                                         child: Row(
                                           children: [
                                             book.imagepath != null
-                                                ? Image.network(book.imagepath!,
-                                                    width: 100, height: 100)
+                                                ? Image.memory(
+                                                    base64Decode(book
+                                                        .imagepath!), // Giải mã base64 và hiển thị hình ảnh
+                                                    width: 100,
+                                                    height: 100,
+                                                    fit: BoxFit.cover,
+                                                  )
                                                 : Container(
                                                     width: 100,
                                                     height: 100,
@@ -566,14 +573,20 @@ class viewfull extends StatelessWidget {
             child: ListView(
               children: [
                 books.imagepath != null
-                    ? Image.network(books.imagepath!, width: 650, height: 450)
+                    ? Image.memory(
+                        base64Decode(books
+                            .imagepath!), // Giải mã base64 và hiển thị hình ảnh
+                        width: 650,
+                        height: 450,
+                        fit: BoxFit.cover,
+                      )
                     : Container(
                         width: 650,
                         height: 450,
                         color: Colors.grey,
                         alignment: Alignment.center,
                         child: const Text('null',
-                            style: TextStyle(color: Colors.white)),
+                            style: TextStyle(color: Colors.black)),
                       ),
                 const SizedBox(width: 50), // Khoảng cách giữa ảnh và text
                 Expanded(

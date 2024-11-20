@@ -7,7 +7,7 @@ class savebook {
   static List<book> books = [];
   static final _random = Random();
 
-  // Tạo chức năng thêm danh sách
+  //  tạo chức năng thêm danh sách
   static Future<void> addbook(
       String name,
       String actor,
@@ -33,11 +33,10 @@ class savebook {
       'imagepath': imagepath, // Lưu đường dẫn ảnh (hoặc tên ảnh)
       'imagename': imageName,
     });
-
-    books = await getbook(); // Cập nhật danh sách sách sau khi thêm mới
+    books = await getbook();
   }
 
-  // Tạo chức năng sửa danh sách
+  //  tạo chức năng sửa danh sách
   static Future<void> updateBook(
       String id,
       String newName,
@@ -60,7 +59,6 @@ class savebook {
       'description': newdescription,
     };
 
-    // Nếu có đường dẫn ảnh mới, cập nhật nó
     if (newImagePath != null) {
       updateData['imagepath'] = newImagePath;
     }
@@ -73,16 +71,17 @@ class savebook {
     await db.collection('books').doc(id).update(updateData);
   }
 
-  // Tạo chức năng xóa danh sách
+  //  tạo chức năng xóa danh sách
   static Future<void> deletedata(String id) async {
     final db = FirebaseFirestore.instance;
     await db.collection('books').doc(id).delete();
   }
 
-  // Khởi tạo danh sách dùng để xem và tìm kiếm
+  // khởi tạo danh sách dùng để xem và tìm kiếm
   static Future<List<book>> getbook() async {
     final db = FirebaseFirestore.instance;
     final results = await db.collection('books').get();
+    // ignore: unnecessary_null_comparison
     if (results != null) {
       return results.docs.map((item) => book.fromMap(item.data())).toList();
     } else {
@@ -102,7 +101,7 @@ class book {
   final String daypublishing;
   final String price;
   final String description;
-  final String? imagepath; // Chỉ lưu đường dẫn ảnh
+  final String? imagepath;
   final String? imagename;
 
   book({
